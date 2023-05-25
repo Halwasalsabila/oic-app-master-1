@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InvCardController;
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\OfficeController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,6 +104,13 @@ Route::middleware(['web', 'auth'])->group(
                 Route::get('/kategori_project/tambah',  'create')->name('kategori_project.create');
                 Route::post('/kategori_project/store',  'store')->name('kategori_project.store');
                 Route::delete('/kategori_project/{project}',  'destroy')->name('kategori_project.destroy');
+            }
+        );
+
+        Route::controller(ProfileController::class)->group(
+            function () {
+                Route::get('/profile',  'index')->name('profile.index');
+                Route::put('/profile/{id}',  'update')->name('profile.update');
             }
         );
     }
