@@ -56,7 +56,7 @@
             </a>
         </li>
         <li>
-            <a href="pages/charts/chartjs.html">
+            <a href="{{ route('invcard.index') }}">
                 <span class="link-title">Inv Card Master</span>
                 <i class="mdi mdi-chart-donut link-icon"></i>
             </a>

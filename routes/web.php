@@ -7,6 +7,7 @@ use App\Http\Controllers\TanahController;
 use App\Http\Controllers\ProyekController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\InvCardController;
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\OfficeController;
 
@@ -54,6 +55,16 @@ Route::middleware(['web', 'auth'])->group(
                 Route::delete('/kendaraan/{kendaraan}',  'destroy')->name('kendaraan.destroy');
                 Route::get('/kendaraan/{kendaraan}/edit',  'edit')->name('kendaraan.edit');
                 Route::put('/kendaraan/{kendaraan}/edit',  'update')->name('kendaraan.update');
+            }
+        );
+        Route::controller(InvCardController::class)->group(
+            function () {
+                Route::get('/invcard',  'index')->name('invcard.index');
+                Route::get('/invcard/tambah',  'create')->name('invcard.create');
+                Route::post('/invcard/store',  'store')->name('invcard.store');
+                Route::delete('/invcard/{invcard}',  'destroy')->name('invcard.destroy');
+                Route::get('/invcard/{invcard}/edit',  'edit')->name('invcard.edit');
+                Route::put('/invcard/{invcard}/edit',  'update')->name('kendaraan.update');
             }
         );
         Route::controller(BuildController::class)->group(
