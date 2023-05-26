@@ -2,8 +2,10 @@
 <div class="sidebar">
     <div class="user-profile">
         <div class="display-avatar animated-avatar">
-            <img class="profile-img img-lg rounded-circle" src="{{ asset('images/profile/male/image_1.png') }}"
+            <img class="profile-img img-lg rounded-circle"
+                src="{{ is_null(auth()->user()->photo_profile) ? asset('images/profile/male/image_1.png') : asset('images/profile') . '/' . auth()->user()->photo_profile }}"
                 alt="profle image">
+            {{-- ?   --}}
         </div>
         <div class="info-wrapper">
             <p class="user-name">{{ Auth::user()->name }}</p>

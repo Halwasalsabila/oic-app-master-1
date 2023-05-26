@@ -24,9 +24,9 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['sometimes','string'],
-            'password' => ['sometimes','nullable', 'string'],
-            'photo' => ['sometimes','nullable','image','mimes:jpeg,png,jpg,gif,svg','max:2048']
+            'name' => ['sometimes', 'string'],
+            'password' => ['sometimes', 'nullable', 'string'],
+            'image' => ['sometimes', 'nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
         ];
     }
 }
