@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Models\Build;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BuildStoreRequest;
 use App\Http\Requests\BuildUpdateRequest;
-use App\Models\Project;
+
 
 class BuildController extends Controller
 {
@@ -34,6 +36,19 @@ class BuildController extends Controller
         return view('build.addbuild', compact('projects'));
     }
 
+    public function print()
+    {
+        $builds =  $builds = Build::get();
+        // return view('pages.transaksi.invoice-print', compact('builds'));
+        $pdf = app('dompdf.wrapper')->loadView('build.print', compact('builds'));
+        $pdf->setPaper(array(0, 0, 609.4488, 935.433), 'landscape');
+
+
+        return $pdf->stream('databangunan.pdf');
+    }
+
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -45,7 +60,7 @@ class BuildController extends Controller
         $input = $request->safe([
             'inp_name', 'inp_inv_card', 'inp_project', 'inp_lokasi', 'inp_harga', 'inp_residu', 'inp_ekonomis', 'inp_penyusutan', 'inp_deskripsi', 'inp_kondisi', 'inp_tglpeminjaman', 'inp_tglpembelian', 'inp_pemakai'
         ]);
-     
+
         $create = Build::create([
             'name' => $input['inp_name'],
             'project' => $input['inp_project'],
@@ -62,7 +77,7 @@ class BuildController extends Controller
             'depreciation_value' => (int) $input['inp_penyusutan'],
 
         ]);
-       
+
         return redirect()->route('build.index')->with('success', "Data bangunan berhasil ditambahkan");
     }
 

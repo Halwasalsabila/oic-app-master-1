@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Project;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +20,7 @@ class BuildFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'inventory_card' => $this->faker->word(),
-            'project' => 'BUILD ' . $this->faker->name(),
+            'project' => '1',
             'price' => $this->faker->randomNumber(),
             'location' => $this->faker->word(),
             'loan_date' => $this->faker->dateTimeBetween('-1 month', '+1 month'),

@@ -71,6 +71,7 @@ Route::middleware(['web', 'auth'])->group(
         Route::controller(BuildController::class)->group(
             function () {
                 Route::get('/bangunan',  'index')->name('build.index');
+                Route::get('/bangunan/print',  'print')->name('build.print');
                 Route::get('/bangunan/tambah',  'create')->name('build.create');
                 Route::post('/bangunan/store',  'store')->name('build.store');
                 Route::delete('/bangunan/{build}',  'destroy')->name('build.destroy');
