@@ -96,6 +96,7 @@ Route::middleware(['web', 'auth'])->group(
         Route::controller(ProyekController::class)->group(
             function () {
                 Route::get('/project/{type_project:slug}',  'index')->name('project.index');
+                Route::get('/project/{type_project:slug}/print',  'print')->name('project.print');
                 Route::get('/project/{type_project:slug}/tambah',  'create')->name('project.create');
                 Route::get('/project/{type_project:slug}/edit/{proyek}',  'edit')->name('project.edit');
                 Route::post('/project/{type_project:slug}/store',  'store')->name('project.store');

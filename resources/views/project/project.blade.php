@@ -32,6 +32,11 @@
                                 Add Document
                             </button>
                         </a>
+                        <a href="{{ route('project.print', $type_project->slug) }}">
+                            <button type="button" class="d-inline btn btn-outline-success mb-3 mr-2 float-end">
+                                Print
+                            </button>
+                        </a>
                     </div>
                     <div class="item-wrapper">
                         <div class="table-responsive">

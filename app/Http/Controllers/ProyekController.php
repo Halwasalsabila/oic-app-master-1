@@ -31,6 +31,16 @@ class ProyekController extends Controller
         return view('project.addproject', compact('projects', 'type_project'));
     }
 
+    public function print(Project $type_project)
+    {
+        $projects = Proyek::whereHas('projects', function ($query) use ($type_project) {
+            $query->where('slug', $type_project->slug);
+        })->get();
+        $pdf = app('dompdf.wrapper')->loadView('project.print', compact('projects', 'type_project'));
+        $pdf->setPaper(array(0, 0, 609.4488, 935.433), 'landscape');
+        return $pdf->stream('dataproyek.pdf');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
