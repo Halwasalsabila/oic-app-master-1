@@ -27,8 +27,7 @@ Route::get('/', [AuthController::class, 'login_admin'])->name('login');
 Route::post('actionlogin', [AuthController::class, 'actionlogin'])->name('actionlogin');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
-
-Route::middleware(['web', 'auth'])->group(
+Route::middleware(['web', 'auth', 'checkRole:ADMIN,YAYASAN,DIREKTUR'])->group(
     function () {
         Route::get('/dashboard', function () {
             return view('dashboard');

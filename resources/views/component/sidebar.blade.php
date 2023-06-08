@@ -9,6 +9,7 @@
         </div>
         <div class="info-wrapper">
             <p class="user-name">{{ Auth::user()->name }}</p>
+            <small>{{ Auth::user()->roles }}</small>
         </div>
     </div>
     <ul class="navigation-menu">

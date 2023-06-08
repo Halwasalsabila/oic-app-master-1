@@ -22,6 +22,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->smallInteger('active')->default(1);
+            $table->enum('roles', ['ADMIN', 'YAYASAN', 'DIREKTUR'])->default('ADMIN');
             $table->rememberToken();
             $table->timestamps();
         });

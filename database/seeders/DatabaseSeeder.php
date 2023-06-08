@@ -15,11 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(2)->create();
+        \App\Models\User::factory(3)->create();
         // \App\Models\Project::factory(2)->create();
         DB::table('projects')->insert([
-            ['name' => 'TFCA (Kons.OIC)' ,'slug'=>'tfca'],
-            ['name' => 'US-EMBASSY', 'slug'=>'us-embassy'],
+            ['name' => 'TFCA (Kons.OIC)', 'slug' => 'tfca'],
+            ['name' => 'US-EMBASSY', 'slug' => 'us-embassy'],
         ]);
     }
 }
