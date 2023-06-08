@@ -32,6 +32,17 @@ class KendaraanController extends Controller
         return view('kendaraan.addkendaraan', compact('projects'));
     }
 
+    public function print()
+    {
+        $kendaraans = Kendaraan::get();
+        // return view('pages.transaksi.invoice-print', compact('kendaraans'));
+        $pdf = app('dompdf.wrapper')->loadView('kendaraan.print', compact('kendaraans'));
+        $pdf->setPaper(array(0, 0, 609.4488, 935.433), 'landscape');
+
+
+        return $pdf->stream('databangunan.pdf');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
