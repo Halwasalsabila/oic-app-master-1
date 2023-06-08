@@ -41,6 +41,7 @@ Route::middleware(['web', 'auth'])->group(
         Route::controller(TanahController::class)->group(
             function () {
                 Route::get('/tanah',  'index')->name('tanah.index');
+                Route::get('/tanah/print',  'print')->name('tanah.print');
                 Route::get('/tanah/tambah',  'create')->name('tanah.create');
                 Route::post('/tanah/store',  'store')->name('tanah.store');
                 Route::delete('/tanah/{tanah}',  'destroy')->name('tanah.destroy');
@@ -51,6 +52,7 @@ Route::middleware(['web', 'auth'])->group(
         Route::controller(KendaraanController::class)->group(
             function () {
                 Route::get('/kendaraan',  'index')->name('kendaraan.index');
+                Route::get('/kendaraan/print',  'print')->name('kendaraan.print');
                 Route::get('/kendaraan/tambah',  'create')->name('kendaraan.create');
                 Route::post('/kendaraan/store',  'store')->name('kendaraan.store');
                 Route::delete('/kendaraan/{kendaraan}',  'destroy')->name('kendaraan.destroy');
@@ -83,6 +85,7 @@ Route::middleware(['web', 'auth'])->group(
         Route::controller(OfficeController::class)->group(
             function () {
                 Route::get('/office',  'index')->name('office.index');
+                Route::get('/office/print',  'print')->name('office.print');
                 Route::get('/office/tambah',  'create')->name('office.create');
                 Route::post('/office/store',  'store')->name('office.store');
                 Route::delete('/office/{office}',  'destroy')->name('office.destroy');

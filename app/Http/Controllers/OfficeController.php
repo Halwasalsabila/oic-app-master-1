@@ -34,6 +34,14 @@ class OfficeController extends Controller
         return view('office.addoffice', compact('projects'));
     }
 
+    public function print()
+    {
+        $offices = office::get();
+        $pdf = app('dompdf.wrapper')->loadView('office.print', compact('offices'));
+        $pdf->setPaper(array(0, 0, 609.4488, 935.433), 'landscape');
+        return $pdf->stream('dataoffice.pdf');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
