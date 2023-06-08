@@ -32,6 +32,16 @@ class TanahController extends Controller
         return view('tanah.addtanah', compact('projects'));
     }
 
+    public function print()
+    {
+        $tanahs = Tanah::get();
+        // return view('pages.transaksi.invoice-print', compact('kendaraans'));
+        $pdf = app('dompdf.wrapper')->loadView('tanah.print', compact('tanahs'));
+        $pdf->setPaper(array(0, 0, 609.4488, 935.433), 'landscape');
+
+        return $pdf->stream('databangunan.pdf');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
