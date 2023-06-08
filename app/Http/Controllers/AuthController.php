@@ -9,7 +9,7 @@ use Symfony\Component\Console\Input\Input;
 
 class AuthController extends Controller
 {
-    //
+    //test
     public function login_admin()
     {
         return view('login');
