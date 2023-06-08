@@ -61,6 +61,7 @@ Route::middleware(['web', 'auth'])->group(
         Route::controller(InvCardController::class)->group(
             function () {
                 Route::get('/invcard',  'index')->name('invcard.index');
+                Route::get('/invcard/print',  'print')->name('invcard.print');
                 Route::get('/invcard/tambah',  'create')->name('invcard.create');
                 Route::post('/invcard/store',  'store')->name('invcard.store');
                 Route::delete('/invcard/{invcard}',  'destroy')->name('invcard.destroy');

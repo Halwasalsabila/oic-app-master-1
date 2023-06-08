@@ -32,6 +32,15 @@ class InvCardController extends Controller
         return view('invcard.addinvcard', compact('projects'));
     }
 
+    public function print()
+    {
+        $invcards = InvCard::get();
+        $pdf = app('dompdf.wrapper')->loadView('invcard.print', compact('invcards'));
+        $pdf->setPaper(array(0, 0, 609.4488, 935.433), 'landscape');
+
+
+        return $pdf->stream('databangunan.pdf');
+    }
     /**
      * Store a newly created resource in storage.
      *
