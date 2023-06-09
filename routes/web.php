@@ -46,6 +46,7 @@ Route::middleware(['web', 'auth', 'checkRole:ADMIN,YAYASAN,DIREKTUR'])->group(
                 Route::delete('/tanah/{tanah}',  'destroy')->name('tanah.destroy');
                 Route::get('/tanah/{tanah}/edit',  'edit')->name('tanah.edit');
                 Route::put('/tanah/{tanah}/edit',  'update')->name('tanah.update');
+                Route::put('/tanah/{tanah}/approv',  'approve')->name('tanah.status');
             }
         );
         Route::controller(KendaraanController::class)->group(

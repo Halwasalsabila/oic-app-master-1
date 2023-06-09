@@ -113,6 +113,25 @@ class TanahController extends Controller
     }
 
     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\TanahUpdateRequest $request
+     * @param  \App\Models\Tanah  $tanah
+     * @return \Illuminate\Http\Response
+     */
+    public function approve(Tanah $tanah)
+    {
+        $update = $tanah->update([
+            'status' => 1
+        ]);
+        if (!$update) {
+            return redirect()->back()->with('error', "Terjadi kesalahan pada sistem");
+        }
+
+        return redirect()->route('tanah.index')->with('success', "Data tanah {$tanah->name} berhasil diapprove");
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Tanah  $tanah

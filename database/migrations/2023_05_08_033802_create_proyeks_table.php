@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('user')->nullable();
             $table->enum('condition', ['Baik', 'Rusak', 'Dijual', 'Hilang']);
             $table->string('description')->nullable();
+            $table->boolean('status')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

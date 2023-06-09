@@ -24,6 +24,7 @@ return new class extends Migration
             $table->timestamp('loan_date')->nullable();
             $table->string('user')->nullable();
             $table->enum('condition', ['Baik', 'Rusak']);
+            $table->boolean('status')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

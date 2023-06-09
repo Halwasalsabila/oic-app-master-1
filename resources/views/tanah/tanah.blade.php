@@ -43,7 +43,7 @@
                     <div class="item-wrapper">
                         <div class="table-responsive">
                             <table class="table">
-                                <thead>
+                                <thead class="text-center">
                                     <tr>
                                         <th>No</th>
                                         <th>Tanggal Pembelian</th>
@@ -54,6 +54,7 @@
                                         <th>Lokasi</th>
                                         <th>Tanggal Peminjaman</th>
                                         <th>Pemakai</th>
+                                        <th>Status</th>
                                         <th>Kondisi</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -70,6 +71,13 @@
                                             <td>{{ $item->location }}</td>
                                             <td>{{ $item->date_buy?->isoFormat('dddd, D MMMM Y') ?? '-' }}</td>
                                             <td>{{ $item->user }}</td>
+                                            <td>
+                                                @if ($item->status == 1)
+                                                    <label class="badge badge-success">Approve</label>
+                                                @else
+                                                    <label class="badge badge-danger">Pengajuan</label>
+                                                @endif
+                                            </td>
                                             <td>
                                                 @if ($item->condition == 'Baik')
                                                     <label class="badge badge-success">{{ $item->condition }}</label>
@@ -89,6 +97,17 @@
                                                         {{ method_field('delete') }}
                                                         <button type="submit" class="btn btn-danger btn-xs has-icon"><i
                                                                 class="mdi mdi-delete mr-0"></i></button>
+                                                    </form>
+                                                </td>
+                                            @endif
+                                            @if (auth()->user()->roles == 'DIREKTUR')
+                                                <td>
+                                                    <form method="POST" action="{{ route('tanah.status', $item->id) }}"
+                                                        class="d-inline">
+                                                        @csrf
+                                                        {{ method_field('put') }}
+                                                        <button type="submit" class="btn btn-warning btn-xs has-icon"><i
+                                                                class="mdi mdi-check mr-0"></i></button>
                                                     </form>
                                                 </td>
                                             @endif
