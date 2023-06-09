@@ -27,7 +27,7 @@
                 <div class="grid">
                     <div class="grid-header">
                         <p class="d-inline start">Tanah</p>
-                        @if (auth()->user()->roles == 'ADMIN')
+                        @if (auth()->user()->roles == 'ADMIN' || auth()->user()->roles == 'DIREKTUR')
                             <a href="{{ route('tanah.create') }}">
                                 <button type="button" class="d-inline btn btn-outline-success mb-3 float-end">
                                     Add Document
@@ -85,7 +85,7 @@
                                                     <label class="badge badge-danger">{{ $item->condition }}</label>
                                                 @endif
                                             </td>
-                                            @if (auth()->user()->roles == 'ADMIN')
+                                            @if (auth()->user()->roles == 'ADMIN' || auth()->user()->roles == 'DIREKTUR')
                                                 <td>
                                                     <a href="{{ route('tanah.edit', $item->id) }}">
                                                         <button class="btn btn-primary btn-xs has-icon"><i
@@ -98,19 +98,20 @@
                                                         <button type="submit" class="btn btn-danger btn-xs has-icon"><i
                                                                 class="mdi mdi-delete mr-0"></i></button>
                                                     </form>
+                                                    @if (auth()->user()->roles == 'DIREKTUR')
+                                                        <form method="POST"
+                                                            action="{{ route('tanah.status', $item->id) }}"
+                                                            class="d-inline">
+                                                            @csrf
+                                                            {{ method_field('put') }}
+                                                            <button type="submit"
+                                                                class="btn btn-warning btn-xs has-icon"><i
+                                                                    class="mdi mdi-check mr-0"></i></button>
+                                                        </form>
+                                                    @endif
                                                 </td>
                                             @endif
-                                            @if (auth()->user()->roles == 'DIREKTUR')
-                                                <td>
-                                                    <form method="POST" action="{{ route('tanah.status', $item->id) }}"
-                                                        class="d-inline">
-                                                        @csrf
-                                                        {{ method_field('put') }}
-                                                        <button type="submit" class="btn btn-warning btn-xs has-icon"><i
-                                                                class="mdi mdi-check mr-0"></i></button>
-                                                    </form>
-                                                </td>
-                                            @endif
+
                                         </tr>
                                     @endforeach
                                 </tbody>

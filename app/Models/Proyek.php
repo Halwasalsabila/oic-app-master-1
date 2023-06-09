@@ -12,7 +12,7 @@ class Proyek extends Model
     protected $table = "proyeks";
     protected $primaryKey = 'id';
     protected $fillable = [
-        'name', 'inventory_card', 'project', 'price', 'location', 'condition', 'loan_date', 'buy_date', 'description', 'user'
+        'name', 'inventory_card', 'project', 'price', 'location', 'condition', 'loan_date', 'buy_date', 'description', 'user','status'
     ];
     protected $dates = [
         'loan_date',

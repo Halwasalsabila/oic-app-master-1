@@ -94,6 +94,25 @@ class ProyekController extends Controller
     }
 
     /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Project  $type_project
+     * @param  \App\Models\Proyek  $proyek
+     * @return \Illuminate\Http\Response
+     */
+    public function approve(Project $type_project, Proyek $proyek)
+    {
+        $update = $proyek->update([
+            'status' => 1
+        ]);
+        if (!$update) {
+            return redirect()->back()->with('error', "Terjadi kesalahan pada sistem");
+        }
+
+        return redirect()->route('project.index', $type_project->slug)->with('success', "Data project {$proyek->name} berhasil diapprove");
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\ProjectUpdateRequest  $request

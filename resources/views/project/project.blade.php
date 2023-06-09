@@ -27,7 +27,7 @@
                 <div class="grid">
                     <div class="grid-header">
                         <p class="d-inline start">Project <strong>{{ $type_project->name }}</strong></p>
-                        @if (auth()->user()->roles == 'ADMIN')
+                        @if (auth()->user()->roles == 'ADMIN' || auth()->user()->roles == 'DIREKTUR')
                             <a href="{{ route('project.create', $type_project->slug) }}">
                                 <button type="button" class="d-inline btn btn-outline-success mb-3 float-end">
                                     Add Document
@@ -56,6 +56,7 @@
                                         <th>Tanggal Peminjaman</th>
                                         <th>Pemakai</th>
                                         <th>Deskripsi</th>
+                                        <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -86,7 +87,14 @@
                                             <td>{{ $item->loan_date?->isoFormat('dddd, D MMMM Y') ?? '-' }}</td>
                                             <td>{{ $item->user ?? '-' }}</td>
                                             <td>{{ $item->description ?? '-' }}</td>
-                                            @if (auth()->user()->roles == 'ADMIN')
+                                            <td>
+                                                @if ($item->status == 1)
+                                                    <label class="badge badge-success">Approve</label>
+                                                @else
+                                                    <label class="badge badge-danger">Pengajuan</label>
+                                                @endif
+                                            </td>
+                                            @if (auth()->user()->roles == 'ADMIN' || auth()->user()->roles == 'DIREKTUR')
                                                 <td>
                                                     <a
                                                         href="{{ route('project.edit', [$type_project->slug, $item->id]) }}">
@@ -101,6 +109,17 @@
                                                         <button type="submit" class="btn btn-danger btn-xs has-icon"><i
                                                                 class="mdi mdi-delete mr-0"></i></button>
                                                     </form>
+                                                    @if (auth()->user()->roles == 'DIREKTUR')
+                                                        <form method="POST"
+                                                            action="{{ route('project.status', [$type_project->slug, $item->id]) }}"
+                                                            class="d-inline">
+                                                            @csrf
+                                                            {{ method_field('put') }}
+                                                            <button type="submit"
+                                                                class="btn btn-warning btn-xs has-icon"><i
+                                                                    class="mdi mdi-check mr-0"></i></button>
+                                                        </form>
+                                                    @endif
                                                 </td>
                                         </tr>
                                     @endif

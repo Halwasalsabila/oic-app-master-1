@@ -124,7 +124,24 @@ class OfficeController extends Controller
 
         return redirect()->route('office.index')->with('success', "Data office berhasil diubah");
     }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\TanahUpdateRequest $request
+     * @param  \App\Models\Tanah  $tanah
+     * @return \Illuminate\Http\Response
+     */
+    public function approve(Office $office)
+    {
+        $update = $office->update([
+            'status' => 1
+        ]);
+        if (!$update) {
+            return redirect()->back()->with('error', "Terjadi kesalahan pada sistem");
+        }
 
+        return redirect()->route('office.index')->with('success', "Data office {$office->name} berhasil diapprove");
+    }
     /**
      * Remove the specified resource from storage.
      *

@@ -120,6 +120,24 @@ class KendaraanController extends Controller
     }
 
     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Models\Kendaraan  $tanah
+     * @return \Illuminate\Http\Response
+     */
+    public function approve(Kendaraan $kendaraan)
+    {
+        $update = $kendaraan->update([
+            'status' => 1
+        ]);
+        if (!$update) {
+            return redirect()->back()->with('error', "Terjadi kesalahan pada sistem");
+        }
+
+        return redirect()->route('kendaraan.index')->with('success', "Data kendaraan {$kendaraan->name} berhasil diapprove");
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Kendaraan  $kendaraan

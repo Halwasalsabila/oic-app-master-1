@@ -58,6 +58,7 @@ Route::middleware(['web', 'auth', 'checkRole:ADMIN,YAYASAN,DIREKTUR'])->group(
                 Route::delete('/kendaraan/{kendaraan}',  'destroy')->name('kendaraan.destroy');
                 Route::get('/kendaraan/{kendaraan}/edit',  'edit')->name('kendaraan.edit');
                 Route::put('/kendaraan/{kendaraan}/edit',  'update')->name('kendaraan.update');
+                Route::put('/kendaraan/{kendaraan}/approv',  'approve')->name('kendaraan.status');
             }
         );
         Route::controller(InvCardController::class)->group(
@@ -69,6 +70,7 @@ Route::middleware(['web', 'auth', 'checkRole:ADMIN,YAYASAN,DIREKTUR'])->group(
                 Route::delete('/invcard/{invcard}',  'destroy')->name('invcard.destroy');
                 Route::get('/invcard/{invcard}/edit',  'edit')->name('invcard.edit');
                 Route::put('/invcard/{invcard}/edit',  'update')->name('kendaraan.update');
+                Route::put('/invcard/{invcard}/approv',  'approve')->name('invcard.status');
             }
         );
         Route::controller(BuildController::class)->group(
@@ -80,6 +82,7 @@ Route::middleware(['web', 'auth', 'checkRole:ADMIN,YAYASAN,DIREKTUR'])->group(
                 Route::delete('/bangunan/{build}',  'destroy')->name('build.destroy');
                 Route::get('/bangunan/{build}/edit',  'edit')->name('build.edit');
                 Route::put('/bangunan/{build}/edit',  'update')->name('build.update');
+                Route::put('/bangunan/{build}/approv',  'approve')->name('build.status');
             }
         );
         Route::controller(OfficeController::class)->group(
@@ -91,6 +94,7 @@ Route::middleware(['web', 'auth', 'checkRole:ADMIN,YAYASAN,DIREKTUR'])->group(
                 Route::delete('/office/{office}',  'destroy')->name('office.destroy');
                 Route::get('/office/{office}/edit',  'edit')->name('office.edit');
                 Route::put('/office/{office}/edit',  'update')->name('office.update');
+                Route::put('/office/{office}/approv',  'approve')->name('office.status');
             }
         );
         Route::controller(ProyekController::class)->group(
@@ -102,6 +106,7 @@ Route::middleware(['web', 'auth', 'checkRole:ADMIN,YAYASAN,DIREKTUR'])->group(
                 Route::post('/project/{type_project:slug}/store',  'store')->name('project.store');
                 Route::delete('/project/{type_project:slug}/destroy/{proyek}',  'destroy')->name('project.destroy');
                 Route::put('/project/{type_project:slug}/update/{proyek}',  'update')->name('project.update');
+                Route::put('/project/{type_project:slug}/approve/{proyek}',  'approve')->name('project.status');
             }
         );
         Route::controller(ProjectController::class)->group(
