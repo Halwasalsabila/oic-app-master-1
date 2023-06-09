@@ -27,11 +27,13 @@
                 <div class="grid">
                     <div class="grid-header">
                         <p class="d-inline start">Project <strong>{{ $type_project->name }}</strong></p>
-                        <a href="{{ route('project.create', $type_project->slug) }}">
-                            <button type="button" class="d-inline btn btn-outline-success mb-3 float-end">
-                                Add Document
-                            </button>
-                        </a>
+                        @if (auth()->user()->roles == 'ADMIN')
+                            <a href="{{ route('project.create', $type_project->slug) }}">
+                                <button type="button" class="d-inline btn btn-outline-success mb-3 float-end">
+                                    Add Document
+                                </button>
+                            </a>
+                        @endif
                         <a href="{{ route('project.print', $type_project->slug) }}">
                             <button type="button" class="d-inline btn btn-outline-success mb-3 mr-2 float-end">
                                 Print
@@ -84,21 +86,24 @@
                                             <td>{{ $item->loan_date?->isoFormat('dddd, D MMMM Y') ?? '-' }}</td>
                                             <td>{{ $item->user ?? '-' }}</td>
                                             <td>{{ $item->description ?? '-' }}</td>
-                                            <td>
-                                                <a href="{{ route('project.edit', [$type_project->slug, $item->id]) }}">
-                                                    <button class="btn btn-primary btn-xs has-icon"><i
-                                                            class="mdi mdi-pencil mr-0"></i></button>
-                                                </a>
-                                                <form method="POST"
-                                                    action="{{ route('project.destroy', [$type_project->slug, $item->id]) }}"
-                                                    class="d-inline">
-                                                    @csrf
-                                                    {{ method_field('delete') }}
-                                                    <button type="submit" class="btn btn-danger btn-xs has-icon"><i
-                                                            class="mdi mdi-delete mr-0"></i></button>
-                                                </form>
-                                            </td>
+                                            @if (auth()->user()->roles == 'ADMIN')
+                                                <td>
+                                                    <a
+                                                        href="{{ route('project.edit', [$type_project->slug, $item->id]) }}">
+                                                        <button class="btn btn-primary btn-xs has-icon"><i
+                                                                class="mdi mdi-pencil mr-0"></i></button>
+                                                    </a>
+                                                    <form method="POST"
+                                                        action="{{ route('project.destroy', [$type_project->slug, $item->id]) }}"
+                                                        class="d-inline">
+                                                        @csrf
+                                                        {{ method_field('delete') }}
+                                                        <button type="submit" class="btn btn-danger btn-xs has-icon"><i
+                                                                class="mdi mdi-delete mr-0"></i></button>
+                                                    </form>
+                                                </td>
                                         </tr>
+                                    @endif
                                     @endforeach
                                 </tbody>
                             </table>
