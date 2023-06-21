@@ -50,7 +50,7 @@ class InvCardController extends Controller
     public function store(InvCardStoreRequest $request)
     {
         $input = $request->safe([
-            'inp_name', 'inp_inv_card', 'inp_project', 'inp_lokasi', 'inp_harga', 'inp_residu', 'inp_penyusutan', 'inp_ekonomis', 'inp_deskripsi', 'inp_kondisi', 'inp_tglpeminjaman', 'inp_tglpembelian', 'inp_pemakai'
+            'inp_name', 'inp_inv_card', 'inp_project', 'inp_lokasi', 'inp_harga', 'inp_residu', 'inp_penyusutan', 'inp_deskripsi', 'inp_kondisi', 'inp_tglpeminjaman', 'inp_tglpembelian', 'inp_pemakai'
         ]);
         $create = InvCard::create([
             'name' => $input['inp_name'],
@@ -64,7 +64,6 @@ class InvCardController extends Controller
             'buy_date' => $input['inp_tglpembelian'],
             'user' => $input['inp_pemakai'],
             'residu_value' => (int) $input['inp_residu'],
-            'economic_value' => (int) $input['inp_ekonomis'],
             'depreciation_value' => (int) $input['inp_penyusutan'],
         ]);
         return redirect()->route('invcard.index')->with('success', "Data produk berhasil ditambahkan");
@@ -92,7 +91,7 @@ class InvCardController extends Controller
     public function update(InvCardUpdateRequest $request, InvCard $invcard)
     {
         $input = $request->safe([
-            'inp_name', 'inp_inv_card', 'inp_project', 'inp_lokasi', 'inp_harga', 'inp_residu', 'inp_penyusutan', 'inp_ekonomis', 'inp_deskripsi', 'inp_kondisi', 'inp_tglpeminjaman', 'inp_tglpembelian', 'inp_pemakai'
+            'inp_name', 'inp_inv_card', 'inp_project', 'inp_lokasi', 'inp_harga', 'inp_residu', 'inp_penyusutan', 'inp_deskripsi', 'inp_kondisi', 'inp_tglpeminjaman', 'inp_tglpembelian', 'inp_pemakai'
         ]);
         $update = $invcard->update([
             'name' => $input['inp_name'],
@@ -106,7 +105,6 @@ class InvCardController extends Controller
             'buy_date' => $input['inp_tglpembelian'],
             'user' => $input['inp_pemakai'],
             'residu_value' => (int) $input['inp_residu'],
-            'economic_value' => (int) $input['inp_ekonomis'],
             'depreciation_value' => (int) $input['inp_penyusutan'],
         ]);
         if (!$update) {

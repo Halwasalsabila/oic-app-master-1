@@ -131,23 +131,6 @@
                                     </div>
                                     <div class="form-group row showcase_row_area">
                                         <div class="col-md-2 showcase_text_area">
-                                            <label for="inp_ekonomis">Nilai Ekonomis</label>
-                                        </div>
-                                        <div class="col-md-8 showcase_content_area">
-                                            <input type="text"
-                                                class="form-control @error('inp_ekonomis') is-invalid @enderror"
-                                                id="inp_ekonomis" name="inp_ekonomis" readonly
-                                                placeholder="Masukan data harga"
-                                                value="{{ old('inp_ekonomis') ?? $invcard->economic_value }}">
-                                            @error('inp_ekonomis')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="form-group row showcase_row_area">
-                                        <div class="col-md-2 showcase_text_area">
                                             <label for="inp_penyusutan">Nilai Penyusutan</label>
                                         </div>
                                         <div class="col-md-8 showcase_content_area">
@@ -281,12 +264,10 @@
             var harga = $(this).val();
 
             var residu = $("#inp_residu").val(nilaiResidu(harga)).val();
-            var ekonomis = $("#inp_ekonomis").val(nilaiEkonomis(harga, residu)).val();
             var penyusutan = $("#inp_penyusutan").val(nilaiPenyusutan(harga, residu)).val();
             console.log($(this).val() == '');
             if (harga === '') {
                 $("#inp_residu").val(null);
-                $("#inp_ekonomis").val(null);
                 $("#inp_penyusutan").val(null);
             }
         });
@@ -297,10 +278,6 @@
 
         function nilaiResidu(harga) {
             return harga * 10 / 100;
-        }
-
-        function nilaiEkonomis(harga, residu) {
-            return harga - residu;
         }
 
         function nilaiPenyusutan(harga, residu) {

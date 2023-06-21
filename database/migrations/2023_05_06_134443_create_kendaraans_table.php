@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('project');
             $table->integer('price')->default(0)->nullable();
             $table->integer('residu_value')->default(0)->nullable();
-            $table->integer('economic_value')->default(0)->nullable();
             $table->integer('depreciation_value')->default(0)->nullable();
             $table->timestamp('loan_date')->nullable();
             $table->timestamp('buy_date')->nullable();

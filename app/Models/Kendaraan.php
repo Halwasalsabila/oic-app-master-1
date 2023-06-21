@@ -12,7 +12,7 @@ class Kendaraan extends Model
     protected $table = "kendaraans";
     protected $primaryKey = 'id';
     protected $fillable = [
-        'name', 'inventory_card', 'project', 'price', 'residu_value', 'economic_value', 'depreciation_value', 'location', 'condition', 'loan_date', 'buy_date', 'description', 'user','status'
+        'name', 'inventory_card', 'project', 'price', 'residu_value', 'depreciation_value', 'location', 'condition', 'loan_date', 'buy_date', 'description', 'user', 'status'
     ];
     protected $dates = [
         'loan_date',

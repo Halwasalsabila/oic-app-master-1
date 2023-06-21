@@ -35,8 +35,7 @@ class BuildStoreRequest extends FormRequest
             'inp_tglpeminjaman' => ['sometimes', 'nullable', 'date'],
             'inp_tglpembelian' => ['sometimes', 'nullable', 'date'],
             'inp_residu'        => ['required_with_all:inp_tglpembelian,inp_harga', 'nullable', 'numeric'],
-            'inp_ekonomis'      => ['required_with_all:inp_tglpembelian,inp_harga,inp_residu', 'nullable', 'numeric'],
-            'inp_penyusutan'    => ['required_with_all:inp_tglpembelian,inp_harga,inp_residu,inp_ekonomis', 'nullable', 'numeric'],
+            'inp_penyusutan'    => ['required_with_all:inp_tglpembelian,inp_harga,inp_residu', 'nullable', 'numeric'],
         ];
     }
 }
