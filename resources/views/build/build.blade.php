@@ -34,11 +34,13 @@
                                 </button>
                             </a>
                         @endif
-                        <a href="{{ route('build.print') }}">
-                            <button type="button" class="d-inline btn btn-outline-success mb-3 mr-2 float-end">
-                                Print
-                            </button>
-                        </a>
+                        @if (auth()->user()->roles !== 'ADMIN')
+                            <a href="{{ route('build.print') }}">
+                                <button type="button" class="d-inline btn btn-outline-success mb-3 mr-2 float-end">
+                                    Print
+                                </button>
+                            </a>
+                        @endif
                     </div>
                     <div class="item-wrapper">
                         <div class="table-responsive">

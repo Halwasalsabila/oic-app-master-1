@@ -34,11 +34,13 @@
                                 </button>
                             </a>
                         @endif
+                        @if (auth()->user()->roles !== 'ADMIN')
                         <a href="{{ route('kendaraan.print') }}">
                             <button type="button" class="d-inline btn btn-outline-success mb-3 mr-2 float-end">
                                 Print
                             </button>
                         </a>
+                        @endif
                     </div>
                     <div class="item-wrapper">
                         <div class="table-responsive">
