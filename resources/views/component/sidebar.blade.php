@@ -3,7 +3,7 @@
     <div class="user-profile">
         <div class="display-avatar animated-avatar">
             <img class="profile-img img-lg rounded-circle"
-                src="{{ is_null(auth()->user()->photo_profile) ? asset('images/profile/male/image_1.png') : asset('images/profile') . '/' . auth()->user()->photo_profile }}"
+                src="{{ is_null(auth()->user()->photo_profile) ? asset('images/profile/male/image_1.png') : asset('storage/images/profiles') . '/' . auth()->user()->photo_profile }}"
                 alt="profle image">
             {{-- ?   --}}
         </div>

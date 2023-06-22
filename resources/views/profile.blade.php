@@ -58,7 +58,7 @@
                                 <center>
                                     <div class="user-profile">
                                         <img id="img"
-                                            src="{{ is_null(auth()->user()->photo_profile) ? asset('storage/images/profile/male/image_1.png') : asset('storage/images/profiles') . '/' . auth()->user()->photo_profile }}"
+                                            src="{{ is_null(auth()->user()->photo_profile) ? asset('images/profile/male/image_1.png') : asset('storage/images/profiles') . '/' . auth()->user()->photo_profile }}"
                                             style="width:100%">
                                     </div>
                                 </center>
