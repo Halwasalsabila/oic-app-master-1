@@ -78,7 +78,8 @@ class InvCardController extends Controller
      */
     public function edit(InvCard $invcard)
     {
-        return view('invcard.editinvcard', compact('invcard', 'invcard'));
+        $projects = Project::get();
+        return view('invcard.editinvcard', compact('invcard', 'projects'));
     }
 
     /**

@@ -69,7 +69,7 @@ Route::middleware(['web', 'auth', 'checkRole:ADMIN,YAYASAN,DIREKTUR'])->group(
                 Route::post('/invcard/store',  'store')->name('invcard.store');
                 Route::delete('/invcard/{invcard}',  'destroy')->name('invcard.destroy');
                 Route::get('/invcard/{invcard}/edit',  'edit')->name('invcard.edit');
-                Route::put('/invcard/{invcard}/edit',  'update')->name('kendaraan.update');
+                Route::put('/invcard/{invcard}/edit',  'update')->name('invcard.update');
                 Route::put('/invcard/{invcard}/approv',  'approve')->name('invcard.status');
             }
         );
