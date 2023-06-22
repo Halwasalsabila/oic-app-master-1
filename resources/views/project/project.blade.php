@@ -43,7 +43,7 @@
                     <div class="item-wrapper">
                         <div class="table-responsive">
                             <table class="table">
-                                <thead>
+                                <thead class="text-center">
                                     <tr>
                                         <th>No</th>
                                         <th>Tanggal Pembelian</th>

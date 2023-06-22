@@ -43,7 +43,7 @@
                     <div class="item-wrapper">
                         <div class="table-responsive">
                             <table class="table">
-                                <thead>
+                                <thead class="text-center">
                                     <tr>
                                         <th>No</th>
                                         <th>Tanggal Pembelian</th>
@@ -51,7 +51,7 @@
                                         <th>Inventory Card</th>
                                         <th>Project</th>
                                         <th>Harga</th>
-                                        <th>Julah (Satuan)</th>
+                                        <th>Jumlah (Satuan)</th>
                                         <th>Total</th>
                                         <th>Lokasi</th>
                                         <th>Kondisi</th>

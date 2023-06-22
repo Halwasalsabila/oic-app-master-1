@@ -30,7 +30,7 @@
     <p>Tanggal Print : {{ now() }}</p>
 
     <table class="table table-bordered table-striped">
-        <thead>
+        <thead class="text-center">
             <tr>
                 <th>No</th>
                 <th>Tanggal Pembelian</th>

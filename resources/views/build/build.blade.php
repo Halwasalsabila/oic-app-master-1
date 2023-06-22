@@ -43,7 +43,7 @@
                     <div class="item-wrapper">
                         <div class="table-responsive">
                             <table class="table">
-                                <thead>
+                                <thead class="text-center">
                                     <tr>
                                         <th>No</th>
                                         <th>Tanggal Pembelian</th>
@@ -52,7 +52,7 @@
                                         <th>Project</th>
                                         <th>Harga</th>
                                         <th>Nilai Residu</th>
-                                        <th>Nilai Penyusutan</th>
+                                        <th>Nilai Penyusutan <br /> (Tahun Ke)</th>
                                         <th>Lokasi</th>
                                         <th>Kondisi</th>
                                         <th>Tanggal Peminjaman</th>
