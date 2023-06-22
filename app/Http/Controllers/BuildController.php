@@ -102,20 +102,21 @@ class BuildController extends Controller
     public function update(BuildUpdateRequest $request, Build $build)
     {
         $input = $request->safe([
-            'inp_name', 'inp_inv_card', 'inp_project', 'inp_lokasi', 'inp_harga', 'inp_deskripsi', 'inp_kondisi', 'inp_tglpeminjaman', 'inp_tglpembelian', 'inp_pemakai'
+            'inp_name', 'inp_inv_card', 'inp_project', 'inp_lokasi', 'inp_harga', 'inp_residu', 'inp_penyusutan', 'inp_deskripsi', 'inp_kondisi', 'inp_tglpeminjaman', 'inp_tglpembelian', 'inp_pemakai'
         ]);
         $update = $build->update([
             'name' => $input['inp_name'],
             'project' => $input['inp_project'],
             'inventory_card' => $input['inp_inv_card'],
             'location' => $input['inp_lokasi'],
-            'price' => $input['inp_harga'] ?? 0,
+            'price' => (int) $input['inp_harga'] ?? 0,
             'condition' => $input['inp_kondisi'],
             'description' => $input['inp_deskripsi'],
             'loan_date' => $input['inp_tglpeminjaman'],
             'buy_date' => $input['inp_tglpembelian'],
             'user' => $input['inp_pemakai'],
-
+            'residu_value' => (int) $input['inp_residu'],
+            'depreciation_value' => (int) $input['inp_penyusutan'],
         ]);
         if (!$update) {
             return redirect()->back()->with('error', "Terjadi kesalahan pada sistem");

@@ -28,12 +28,14 @@ class BuildUpdateRequest extends FormRequest
             'inp_inv_card'      => ['sometimes', 'nullable', 'string'],
             'inp_project'       => ['required', 'string'],
             'inp_lokasi'        => ['required', 'string'],
-            'inp_harga'         => ['required_with:inp_tglpembelian'],
             'inp_deskripsi'     => ['sometimes', 'nullable', 'string'],
-            'inp_pemakai'     => ['sometimes', 'nullable', 'string'],
+            'inp_pemakai'       => ['sometimes', 'nullable', 'string'],
             'inp_kondisi'       => ['required', 'in:Baik,Rusak,Dijual,Hilang'],
             'inp_tglpeminjaman' => ['sometimes', 'nullable', 'date'],
-            'inp_tglpembelian' => ['sometimes', 'nullable', 'date'],
+            'inp_tglpembelian'  => ['required_with:inp_tglpembelian,inp_harga,inp_residu', 'nullable', 'date'],
+            'inp_harga'         => ['required_with_all:inp_tglpembelian', 'nullable', 'numeric'],
+            'inp_residu'        => ['required_with_all:inp_tglpembelian,inp_harga', 'nullable', 'numeric'],
+            'inp_penyusutan'    => ['required_with_all:inp_tglpembelian,inp_harga,inp_residu', 'nullable', 'numeric'],
         ];
     }
 }
