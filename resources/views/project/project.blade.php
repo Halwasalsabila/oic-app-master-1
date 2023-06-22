@@ -35,11 +35,11 @@
                             </a>
                         @endif
                         @if (auth()->user()->roles !== 'ADMIN')
-                        <a href="{{ route('project.print', $type_project->slug) }}">
-                            <button type="button" class="d-inline btn btn-outline-success mb-3 mr-2 float-end">
-                                Print
-                            </button>
-                        </a>
+                            <a href="{{ route('project.print', $type_project->slug) }}">
+                                <button type="button" class="d-inline btn btn-outline-success mb-3 mr-2 float-end">
+                                    Print
+                                </button>
+                            </a>
                         @endif
                     </div>
                     <div class="item-wrapper">
@@ -53,6 +53,8 @@
                                         <th>Inventory Card</th>
                                         <th>Project</th>
                                         <th>Harga</th>
+                                        <th>Nilai Residu</th>
+                                        <th>Nilai Penyusutan <br /> (Tahun Ke)</th>
                                         <th>Lokasi</th>
                                         <th>Kondisi</th>
                                         <th>Tanggal Peminjaman</th>
@@ -76,6 +78,18 @@
                                             <td>{{ $item->inventory_card ?? '-' }}</td>
                                             <td>{{ $item->projects->name }}</td>
                                             <td>{{ Helper::formatRupiah($item->price) }}</td>
+                                            <td>{{ Helper::formatRupiah($item->residu_value) }}</td>
+                                            <td>
+                                                @if ($item->price !== 0)
+                                                    @for ($i = 1; $i <= 10; $i++)
+                                                        <li>Ke-{{ $i }}
+                                                            {{ Helper::formatRupiah(($item->price - $item->residu_value) / $i) }}
+                                                        </li>
+                                                    @endfor
+                                                @else
+                                                    Rp. 0
+                                                @endif
+                                            </td>
                                             <td>{{ $item->location }}</td>
                                             <td>
                                                 @if ($item->condition == 'Baik')

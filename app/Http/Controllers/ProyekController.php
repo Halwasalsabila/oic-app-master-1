@@ -50,7 +50,7 @@ class ProyekController extends Controller
     public function store(Project $type_project, ProjectStoreRequest $request)
     {
         $input = $request->safe([
-            'inp_name', 'inp_inv_card', 'inp_project', 'inp_lokasi', 'inp_harga', 'inp_deskripsi', 'inp_kondisi', 'inp_tglpeminjaman', 'inp_tglpembelian', 'inp_pemakai'
+            'inp_name', 'inp_inv_card', 'inp_project', 'inp_lokasi', 'inp_harga', 'inp_residu', 'inp_penyusutan',  'inp_deskripsi', 'inp_kondisi', 'inp_tglpeminjaman', 'inp_tglpembelian', 'inp_pemakai'
         ]);
         $create = Proyek::create([
             'name' => $input['inp_name'],
@@ -63,6 +63,8 @@ class ProyekController extends Controller
             'loan_date' => $input['inp_tglpeminjaman'],
             'buy_date' => $input['inp_tglpembelian'],
             'user' => $input['inp_pemakai'],
+            'residu_value' => (int) $input['inp_residu'],
+            'depreciation_value' => (int) $input['inp_penyusutan'],
 
         ]);
         return redirect()->route('project.index', $type_project->slug)->with('success', "Data project " . $type_project->name . " berhasil ditambahkan");
@@ -121,7 +123,7 @@ class ProyekController extends Controller
     public function update(Project $type_project,  ProjectUpdateRequest $request, Proyek $proyek)
     {
         $input = $request->safe([
-            'inp_name', 'inp_inv_card', 'inp_project', 'inp_lokasi', 'inp_harga', 'inp_deskripsi', 'inp_kondisi', 'inp_tglpeminjaman', 'inp_tglpembelian', 'inp_pemakai'
+            'inp_name', 'inp_inv_card', 'inp_project', 'inp_lokasi', 'inp_harga', 'inp_residu', 'inp_penyusutan', 'inp_deskripsi', 'inp_kondisi', 'inp_tglpeminjaman', 'inp_tglpembelian', 'inp_pemakai'
         ]);
         $create = $proyek->update([
             'name' => $input['inp_name'],
@@ -134,7 +136,8 @@ class ProyekController extends Controller
             'loan_date' => $input['inp_tglpeminjaman'],
             'buy_date' => $input['inp_tglpembelian'],
             'user' => $input['inp_pemakai'],
-
+            'residu_value' => (int) $input['inp_residu'],
+            'depreciation_value' => (int) $input['inp_penyusutan'],
         ]);
         return redirect()->route('project.index', $type_project->slug)->with('success', "Data project " . $type_project->name . " berhasil diubah");
     }

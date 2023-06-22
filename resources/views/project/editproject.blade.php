@@ -113,6 +113,39 @@
                                     </div>
                                     <div class="form-group row showcase_row_area">
                                         <div class="col-md-2 showcase_text_area">
+                                            <label for="inp_residu">Nilai Residu</label>
+                                        </div>
+                                        <div class="col-md-8 showcase_content_area">
+                                            <input type="text"
+                                                class="form-control @error('inp_residu') is-invalid @enderror"
+                                                id="inp_residu" name="inp_residu" readonly placeholder="Masukan data harga"
+                                                value="{{ old('inp_residu') ?? $proyek->residu_value }}">
+                                            @error('inp_residu')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-group row showcase_row_area">
+                                        <div class="col-md-2 showcase_text_area">
+                                            <label for="inp_penyusutan">Nilai Penyusutan Ke-5</label>
+                                        </div>
+                                        <div class="col-md-8 showcase_content_area">
+                                            <input type="text"
+                                                class="form-control @error('inp_penyusutan') is-invalid @enderror"
+                                                id="inp_penyusutan" name="inp_penyusutan" readonly
+                                                placeholder="Masukan data harga"
+                                                value="{{ old('inp_penyusutan') ?? $proyek->depreciation_value }}">
+                                            @error('inp_penyusutan')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-group row showcase_row_area">
+                                        <div class="col-md-2 showcase_text_area">
                                             <label for="inp_lokasi">Lokasi *</label>
                                         </div>
                                         <div class="col-md-8 showcase_content_area">
@@ -223,3 +256,30 @@
     </div>
     </div>
 @endsection
+@push('scripts')
+    <script>
+        $("#inp_harga").keyup(function(event) {
+            var harga = $(this).val();
+
+            var residu = $("#inp_residu").val(nilaiResidu(harga)).val();
+            var penyusutan = $("#inp_penyusutan").val(nilaiPenyusutan(harga, residu)).val();
+            console.log($(this).val() == '');
+            if (harga === '') {
+                $("#inp_residu").val(null);
+                $("#inp_penyusutan").val(null);
+            }
+        });
+        $("#inp_harga").focusout(function() {
+            var harga = $(this).val();
+            $("#inp_residu").val(residu(harga));
+        });
+
+        function nilaiResidu(harga) {
+            return harga * 10 / 100;
+        }
+
+        function nilaiPenyusutan(harga, residu) {
+            return (harga - residu) / 5;
+        }
+    </script>
+@endpush
