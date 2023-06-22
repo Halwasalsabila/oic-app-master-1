@@ -37,6 +37,8 @@ class OfficeUpdateRequest extends FormRequest
             'inp_jumlah'        => ['required_with_all:inp_tglpembelian,inp_harga', 'nullable', 'integer'],
             'inp_satuan'        => ['required_with_all:inp_tglpembelian,inp_harga,inp_jumlah', 'nullable', 'string'],
             'inp_total'         => ['required_with_all:inp_tglpembelian,inp_harga,inp_jumlah,inp_satuan', 'nullable', 'integer'],
+            'inp_residu'        => ['required_with_all:inp_tglpembelian,inp_harga', 'nullable', 'numeric'],
+            'inp_penyusutan'    => ['required_with_all:inp_tglpembelian,inp_harga,inp_residu', 'nullable', 'numeric'],
         ];
     }
 }

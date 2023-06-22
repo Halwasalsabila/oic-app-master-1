@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('inventory_card')->nullable();
             $table->string('project');
             $table->integer('price')->default(0)->nullable();
+            $table->integer('residu_value')->default(0)->nullable();
+            $table->integer('depreciation_value')->default(0)->nullable();
             $table->integer('amount')->nullable();
             $table->string('unit')->nullable();
             $table->integer('total')->default(0)->nullable();

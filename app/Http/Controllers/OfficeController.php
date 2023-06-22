@@ -51,7 +51,7 @@ class OfficeController extends Controller
     public function store(OfficeStoreRequest $request)
     {
         $input = $request->safe([
-            'inp_name', 'inp_inv_card', 'inp_project', 'inp_lokasi', 'inp_harga', 'inp_deskripsi', 'inp_kondisi', 'inp_tglpeminjaman', 'inp_tglpembelian', 'inp_pemakai', 'inp_total', 'inp_satuan', 'inp_jumlah'
+            'inp_name', 'inp_inv_card', 'inp_project', 'inp_lokasi', 'inp_harga', 'inp_residu', 'inp_penyusutan', 'inp_deskripsi', 'inp_kondisi', 'inp_tglpeminjaman', 'inp_tglpembelian', 'inp_pemakai', 'inp_total', 'inp_satuan', 'inp_jumlah'
         ]);
         if (isset($input['inp_total']))
             if ($input['inp_total'] === $input['inp_jumlah'] * $input['inp_harga']) {
@@ -70,7 +70,9 @@ class OfficeController extends Controller
             'user' => $input['inp_pemakai'],
             'amount' => $input['inp_jumlah'],
             'unit' => $input['inp_satuan'],
-            'total' => $input['inp_jumlah'] * $input['inp_harga']
+            'total' => $input['inp_jumlah'] * $input['inp_harga'],
+            'residu_value' => (int) $input['inp_residu'],
+            'depreciation_value' => (int) $input['inp_penyusutan'],
         ]);
         return redirect()->route('office.index')->with('success', "Data produk berhasil ditambahkan");
     }
@@ -97,7 +99,7 @@ class OfficeController extends Controller
     public function update(OfficeUpdateRequest $request, Office $office)
     {
         $input = $request->safe([
-            'inp_name', 'inp_inv_card', 'inp_project', 'inp_lokasi', 'inp_harga', 'inp_deskripsi', 'inp_kondisi', 'inp_tglpeminjaman', 'inp_tglpembelian', 'inp_pemakai', 'inp_total', 'inp_satuan', 'inp_jumlah'
+            'inp_name', 'inp_inv_card', 'inp_project', 'inp_lokasi', 'inp_harga', 'inp_residu', 'inp_penyusutan', 'inp_deskripsi', 'inp_kondisi', 'inp_tglpeminjaman', 'inp_tglpembelian', 'inp_pemakai', 'inp_total', 'inp_satuan', 'inp_jumlah'
         ]);
         if (isset($input['inp_total']))
             if ($input['inp_total'] === $input['inp_jumlah'] * $input['inp_harga']) {
@@ -116,7 +118,9 @@ class OfficeController extends Controller
             'user' => $input['inp_pemakai'],
             'amount' => $input['inp_jumlah'],
             'unit' => $input['inp_satuan'],
-            'total' => $input['inp_jumlah'] * $input['inp_harga']
+            'total' => $input['inp_jumlah'] * $input['inp_harga'],
+            'residu_value' => (int) $input['inp_residu'],
+            'depreciation_value' => (int) $input['inp_penyusutan'],
         ]);
         if (!$update) {
             return redirect()->back()->with('error', "Terjadi kesalahan pada sistem");
