@@ -102,7 +102,7 @@
                                         <div class="col-md-8 showcase_content_area">
                                             <input type="number"
                                                 class="form-control @error('inp_harga') is-invalid @enderror" id="inp_harga"
-                                                name="inp_harga" placeholder="Masukan data harga"
+                                                name="inp_harga" placeholder="Masukan data harga" min="0"
                                                 value="{{ old('inp_harga') }}">
                                             @error('inp_harga')
                                                 <div class="invalid-feedback">

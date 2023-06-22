@@ -103,7 +103,7 @@
                                         <div class="col-md-8 showcase_content_area">
                                             <input type="number"
                                                 class="form-control @error('inp_harga') is-invalid @enderror" id="inp_harga"
-                                                name="inp_harga" placeholder="Masukan data harga"
+                                                name="inp_harga" placeholder="Masukan data harga" min="0"
                                                 value="{{ old('inp_harga') ?? $office->price }}">
                                             @error('inp_harga')
                                                 <div class="invalid-feedback">
@@ -168,7 +168,7 @@
                                             <input type="text"
                                                 class="form-control @error('inp_residu') is-invalid @enderror"
                                                 id="inp_residu" name="inp_residu" readonly
-                                                placeholder="Masukan data harga"
+                                                placeholder="Masukan data harga" min="0"
                                                 value="{{ old('inp_residu') ?? $office->residu_value }}">
                                             @error('inp_residu')
                                                 <div class="invalid-feedback">
@@ -185,7 +185,7 @@
                                             <input type="text"
                                                 class="form-control @error('inp_penyusutan') is-invalid @enderror"
                                                 id="inp_penyusutan" name="inp_penyusutan" readonly
-                                                placeholder="Masukan data harga"
+                                                placeholder="Masukan data harga" min="0"
                                                 value="{{ old('inp_penyusutan') ?? $office->depreciation_value }}">
                                             @error('inp_penyusutan')
                                                 <div class="invalid-feedback">

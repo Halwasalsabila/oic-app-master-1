@@ -102,7 +102,7 @@
                                         <div class="col-md-8 showcase_content_area">
                                             <input type="number"
                                                 class="form-control @error('inp_harga') is-invalid @enderror" id="inp_harga"
-                                                name="inp_harga" placeholder="Masukan data harga"
+                                                name="inp_harga" placeholder="Masukan data harga" min="0"
                                                 value="{{ old('inp_harga') }}">
                                             @error('inp_harga')
                                                 <div class="invalid-feedback">
@@ -150,7 +150,8 @@
                                         <div class="col-md-8 showcase_content_area">
                                             <input type="number"
                                                 class="form-control @error('inp_total') is-invalid @enderror" id="inp_total"
-                                                name="inp_total" placeholder="0" readonly value="{{ old('inp_total') }}">
+                                                name="inp_total" placeholder="0" readonly
+                                                value="{{ old('inp_total') }}">
                                             @error('inp_total')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -166,7 +167,8 @@
                                             <input type="text"
                                                 class="form-control @error('inp_residu') is-invalid @enderror"
                                                 id="inp_residu" name="inp_residu" readonly
-                                                placeholder="Masukan data harga" value="{{ old('inp_residu') }}">
+                                                placeholder="Masukan data harga" min="0"
+                                                value="{{ old('inp_residu') }}">
                                             @error('inp_residu')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -182,7 +184,8 @@
                                             <input type="text"
                                                 class="form-control @error('inp_penyusutan') is-invalid @enderror"
                                                 id="inp_penyusutan" name="inp_penyusutan" readonly
-                                                placeholder="Masukan data harga" value="{{ old('inp_penyusutan') }}">
+                                                placeholder="Masukan data harga" min="0"
+                                                value="{{ old('inp_penyusutan') }}">
                                             @error('inp_penyusutan')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
