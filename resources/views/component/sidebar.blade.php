@@ -2,10 +2,12 @@
 <div class="sidebar">
     <div class="user-profile">
         <div class="display-avatar animated-avatar">
-            <img class="profile-img img-lg rounded-circle"
-                src="{{ is_null(auth()->user()->photo_profile) ? asset('images/profile/male/image_1.png') : asset('storage/images/profiles') . '/' . auth()->user()->photo_profile }}"
-                alt="profle image">
-            {{-- ?   --}}
+            @if (auth()->user()->photo_profile)
+                <img class="profile-img img-lg rounded-circle"
+                    src="{{ asset('storage/' . auth()->user()->photo_profile) }}">
+            @else
+                <img class="profile-img img-lg rounded-circle" src="{{ asset('images/profile/male/image_1.png') }}">
+            @endif
         </div>
         <div class="info-wrapper">
             <p class="user-name">{{ Auth::user()->name }}</p>
