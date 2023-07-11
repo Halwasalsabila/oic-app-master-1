@@ -57,9 +57,13 @@
                             <div class="item-wrapper">
                                 <center>
                                     <div class="user-profile">
-                                        <img id="img"
-                                            src="{{ is_null(auth()->user()->photo_profile) ? asset('images/profile/male/image_1.png') : asset('storage/images/profiles') . '/' . auth()->user()->photo_profile }}"
-                                            style="width:100%">
+                                        @if (auth()->user()->photo_profile)
+                                            <img id="img" src="{{ asset('storage/' . auth()->user()->photo_profile) }}"
+                                                style="width:100%">
+                                        @else
+                                            <img id="img" src="{{ asset('images/profile/male/image_1.png') }}"
+                                                style="width:100%">
+                                        @endif
                                     </div>
                                 </center>
                             </div>
