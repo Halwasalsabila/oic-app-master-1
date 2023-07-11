@@ -52,27 +52,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6 col-6 equel-grid">
-                <div class="grid">
-                    <div class="grid-body text-gray">
-                        <div class="d-flex justify-content-between">
-                            <p>75%</p>
-                            <p>- 53.34%</p>
-                        </div>
-                        <p class="text-black">Marketing</p>
-                        <div class="wrapper w-50 mt-4">
-                            <canvas height="45" id="stat-line_4"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="col-lg-4 col-md-6 equel-grid">
                 <div class="grid">
                     <div class="grid-body d-flex flex-column h-100">
                         <div class="wrapper">
                             <div class="d-flex justify-content-between">
                                 <div class="split-header">
-                                    <img class="img-ss mt-1 mb-1 mr-2" src="" alt="instagram">
                                     <p class="card-title">Jumlah Seluruh Data</p>
                                 </div>
                                 <div class="wrapper">
@@ -96,10 +81,9 @@
             <div class="col-lg-4 col-md-6 equel-grid">
                 <div class="grid">
                     <div class="grid-body">
-                        <p class="card-title">Campaign</p>
-                        <div id="radial-chart"></div>
-                        <h4 class="text-center">$23,350.00</h4>
-                        <p class="text-center text-muted">Used balance this billing cycle</p>
+                        <p class="card-title">Profile Perusahaan</p>
+                        <h4 class="text-center">YOSL-OIC</h4>
+                        <p class="text-center text-muted">Yayasan Orangutan Sumatera Lestari - Orangutan Information Center (YOSL-OIC) pertama kali didirikan pada tahun 2001 oleh Panut Hadisiswoyo. YOSL-OIC adalah sebuah Lembaga Swadaya Masyarakat yang berlokasi di Medan, yang bertujuan untuk melestarikan dan melindungi orangutan sumatera (Pongo abelii) dan rumah hutan mereka. YOSL-OIC merestorasi hutan yang rusak, menanggapi dan memitigasi konflik manusia orangutan, melakukan kunjungan kesadaran lingkungan ke sekolah dan desa, dan memberikan pelatihan untuk membantu masyarakat setempat bekerja menuju masa depan yang lebih berkelanjutan.</p>
                     </div>
                 </div>
             </div>
@@ -198,93 +182,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8 equel-grid">
-                <div class="grid">
-                    <div class="grid-body py-3">
-                        <p class="card-title ml-n1">Data Terbaru</p>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-hover table-sm">
-                            <thead>
-                                <tr class="solid-header">
-                                    <th colspan="2" class="pl-4">Nama Data</th>
-                                    <th>Bagian</th>
-                                    <th>Tanggal Input</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="pr-0 pl-4">
-                                        <img class="profile-img img-sm"
-                                            src="{{ asset('images/profile/male/image_4.png') }}" alt="profle-image">
-                                    </td>
-                                    <td class="pl-md-0">
-                                        <small class="text-black font-weight-medium d-block">Barbara
-                                            Curtis</small>
-                                        <span class="text-gray">
-                                            <span
-                                                class="status-indicator rounded-indicator small bg-primary"></span>Account
-                                            Deactivated </span>
-                                    </td>
-                                    <td>
-                                        <small>8523537435</small>
-                                    </td>
-                                    <td> Just Now </td>
-                                </tr>
-                                <tr>
-                                    <td class="pr-0 pl-4">
-                                        <img class="profile-img img-sm"
-                                            src="{{ asset('images/profile/male/image_3.png') }}" alt="profle-image">
-                                    </td>
-                                    <td class="pl-md-0">
-                                        <small class="text-black font-weight-medium d-block">Charlie
-                                            Hawkins</small>
-                                        <span class="text-gray">
-                                            <span class="status-indicator rounded-indicator small bg-success"></span>Email
-                                            Verified </span>
-                                    </td>
-                                    <td>
-                                        <small>9537537436</small>
-                                    </td>
-                                    <td> Mar 04, 2018 11:37am </td>
-                                </tr>
-                                <tr>
-                                    <td class="pr-0 pl-4">
-                                        <img class="profile-img img-sm"
-                                            src="{{ asset('images/profile/male/image_2.png') }}" alt="profle-image">
-                                    </td>
-                                    <td class="pl-md-0">
-                                        <small class="text-black font-weight-medium d-block">Nina
-                                            Bates</small>
-                                        <span class="text-gray">
-                                            <span
-                                                class="status-indicator rounded-indicator small bg-warning"></span>Payment
-                                            On Hold </span>
-                                    </td>
-                                    <td>
-                                        <small>7533567437</small>
-                                    </td>
-                                    <td> Mar 13, 2018 9:41am </td>
-                                </tr>
-                                <tr>
-                                    <td class="pr-0 pl-4">
-                                        <img class="profile-img img-sm"
-                                            src="{{ asset('images/profile/male/image_10.png') }}" alt="profle-image">
-                                    </td>
-                                    <td class="pl-md-0">
-                                        <small class="text-black font-weight-medium d-block">Hester
-                                            Richards</small>
-                                        <span class="text-gray">
-                                            <span class="status-indicator rounded-indicator small bg-success"></span>Email
-                                            Verified </span>
-                                    </td>
-                                    <td>
-                                        <small>5673467743</small>
-                                    </td>
-                                    <td> Feb 21, 2018 8:34am </td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
