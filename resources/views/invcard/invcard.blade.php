@@ -110,6 +110,18 @@
                                                         <button type="submit" class="btn btn-danger btn-xs has-icon"><i
                                                                 class="mdi mdi-delete mr-0"></i></button>
                                                     </form>
+
+                                                    @if (auth()->user()->roles == 'DIREKTUR')
+                                                        <form method="POST"
+                                                            action="{{ route('kendaraan.status', $item->id) }}"
+                                                            class="d-inline">
+                                                            @csrf
+                                                            {{ method_field('put') }}
+                                                            <button type="submit"
+                                                                class="btn btn-warning btn-xs has-icon"><i
+                                                                    class="mdi mdi-check mr-0"></i></button>
+                                                        </form>
+                                                    @endif
                                                 </td>
                                             @endif
                                         </tr>

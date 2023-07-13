@@ -19,7 +19,7 @@
         th,
         td,
         p {
-            font-size: 0.775em;
+            font-size: 0.575em;
             /* 14px/16=0.875em */
         }
     </style>

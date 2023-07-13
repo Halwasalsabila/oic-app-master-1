@@ -2,8 +2,8 @@
  <nav class="t-header">
      <div class="t-header-brand-wrapper">
          <a href="index.html">
-             <img class="logo" src="{{ asset('images/logo/oic-logo.png') }}" alt="">
-             <h1>| ASSETS</h1>
+             <img class="logo" src="{{ asset('images/logo/oic-icon.png') }}" alt="">
+             <h1>| OIC</h1>
              <img class="logo-mini" src="{{ asset('images/logo_mini.svg') }}" alt="">
          </a>
      </div>

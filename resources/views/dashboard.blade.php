@@ -81,9 +81,17 @@
             <div class="col-lg-4 col-md-6 equel-grid">
                 <div class="grid">
                     <div class="grid-body">
+                        <img class="logo" src="{{ asset('images/logo/oic-icon.png') }}" alt="" width="100"
+                            height="100">
                         <p class="card-title">Profile Perusahaan</p>
                         <h4 class="text-center">YOSL-OIC</h4>
-                        <p class="text-center text-muted">Yayasan Orangutan Sumatera Lestari - Orangutan Information Center (YOSL-OIC) pertama kali didirikan pada tahun 2001 oleh Panut Hadisiswoyo. YOSL-OIC adalah sebuah Lembaga Swadaya Masyarakat yang berlokasi di Medan, yang bertujuan untuk melestarikan dan melindungi orangutan sumatera (Pongo abelii) dan rumah hutan mereka. YOSL-OIC merestorasi hutan yang rusak, menanggapi dan memitigasi konflik manusia orangutan, melakukan kunjungan kesadaran lingkungan ke sekolah dan desa, dan memberikan pelatihan untuk membantu masyarakat setempat bekerja menuju masa depan yang lebih berkelanjutan.</p>
+                        <p class="text-center text-muted">Yayasan Orangutan Sumatera Lestari - Orangutan Information Center
+                            (YOSL-OIC) pertama kali didirikan pada tahun 2001 oleh Panut Hadisiswoyo. YOSL-OIC adalah sebuah
+                            Lembaga Swadaya Masyarakat yang berlokasi di Medan, yang bertujuan untuk melestarikan dan
+                            melindungi orangutan sumatera (Pongo abelii) dan rumah hutan mereka. YOSL-OIC merestorasi hutan
+                            yang rusak, menanggapi dan memitigasi konflik manusia orangutan, melakukan kunjungan kesadaran
+                            lingkungan ke sekolah dan desa, dan memberikan pelatihan untuk membantu masyarakat setempat
+                            bekerja menuju masa depan yang lebih berkelanjutan.</p>
                     </div>
                 </div>
             </div>
@@ -182,15 +190,15 @@
                     </div>
                 </div>
             </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- content viewport ends -->
-            <!-- partial:partials/_footer.html -->
-            @include('component.footer')
-            <!-- partial -->
         </div>
-        <!-- page content ends -->
+    </div>
+    </div>
+
+    <!-- content viewport ends -->
+    <!-- partial:partials/_footer.html -->
+    @include('component.footer')
+    <!-- partial -->
+    </div>
+    <!-- page content ends -->
     </div>
 @endsection

@@ -33,7 +33,7 @@
                                         <div class="col-md-8 showcase_content_area">
                                             <input type="text"
                                                 class="form-control  @error('inp_name') is-invalid @enderror" id="inp_name"
-                                                name="inp_name" placeholder="Masukan nama kendaraan"
+                                                name="inp_name" placeholder="Masukan nama project"
                                                 value="{{ old('inp_name') }}">
                                             @error('inp_name')
                                                 <div class="invalid-feedback">
@@ -164,8 +164,7 @@
                                         <div class="col-md-8 showcase_content_area">
                                             <input type="text"
                                                 class="form-control @error('inp_pemakai') is-invalid @enderror"
-                                                id="inp_pemakai" name="inp_pemakai"
-                                                placeholder="Masukan data pemakai kendaraan"
+                                                id="inp_pemakai" name="inp_pemakai" placeholder="Masukan data pemakai"
                                                 value="{{ old('inp_pemakai') }}">
                                             @error('inp_pemakai')
                                                 <div class="invalid-feedback">
