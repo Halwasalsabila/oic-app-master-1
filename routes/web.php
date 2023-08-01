@@ -29,9 +29,9 @@ Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['web', 'auth', 'checkRole:ADMIN,YAYASAN,DIREKTUR'])->group(
     function () {
-        Route::get('/dashboard', function () {
-            return view('dashboard');
-        });
+        // Route::get('/dashboard', function () {
+        //     return view('dashboard');
+        // });
         Route::controller(DashboardController::class)->group(
             function () {
                 Route::get('/dashboard',  'index')->name('dashboard.index');

@@ -2,9 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Build;
+use App\Models\InvCard;
+use App\Models\Tanah;
+use App\Models\Office;
+use App\Models\Kendaraan;
+use App\Models\Project;
+use App\Models\Proyek;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class   DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,72 +20,56 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $data = [
+            'tanah' => self::totalAssetTanah(),
+            'kendaraan' => self::totalAssetKendaraan(),
+            'build' => self::totalAssetBuild(),
+            'office' => self::totalAssetOffice(),
+            'proyek' => self::totalAssetProject(),
+            'invcard' => self::totalAssetInvCard(),
+            'all' => self::totalAssetAll()
+        ];
+        return view('dashboard', compact('data'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    protected function totalAssetTanah()
     {
-        //
+        $count = Tanah::count();
+        return $count;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    protected function totalAssetKendaraan()
     {
-        //
+        $count = Kendaraan::count();
+        return $count;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    protected function totalAssetBuild()
     {
-        //
+        $count = Build::count();
+        return $count;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    protected function totalAssetOffice()
     {
-        //
+        $count = Office::count();
+        return $count;
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    protected function totalAssetProject()
     {
-        //
+        $count = Proyek::count();
+        return $count;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    protected function totalAssetInvCard()
     {
-        //
+        $count = InvCard::count();
+        return $count;
+    }
+
+    protected function totalAssetAll()
+    {
+        return self::totalAssetTanah() + self::totalAssetKendaraan() + self::totalAssetBuild() + self::totalAssetOffice() + self::totalAssetProject() + self::totalAssetInvCard();
     }
 }
