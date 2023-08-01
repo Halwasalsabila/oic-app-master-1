@@ -2,20 +2,50 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Office;
 use App\Models\Proyek;
 use App\Models\Project;
+use App\Models\Kendaraan;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProjectStoreRequest;
 use App\Http\Requests\ProjectUpdateRequest;
+use App\Models\Build;
+use App\Models\InvCard;
+use App\Models\Tanah;
 
 class ProyekController extends Controller
 {
     //
     public function index(Project $type_project)
     {
-        $projects = Proyek::whereHas('projects', function ($query) use ($type_project) {
+        //  // $offices = Office::get();
+        // // $kendaraan = Kendaraan::get();
+        $build = Build::whereHas('projects', function ($query) use ($type_project) {
             $query->where('slug', $type_project->slug);
-        })->latest()->paginate(15);
+        })->select('id', 'name', 'inventory_card', 'project', 'price', 'residu_value', 'depreciation_value', 'location', 'condition', 'loan_date', 'buy_date', 'description', 'user', 'status', 'created_at');
+        $kendaraan = Kendaraan::whereHas('projects', function ($query) use ($type_project) {
+            $query->where('slug', $type_project->slug);
+        })->select('id', 'name', 'inventory_card', 'project', 'price', 'residu_value', 'depreciation_value', 'location', 'condition', 'loan_date', 'buy_date', 'description', 'user', 'status', 'created_at');
+        $office = Office::whereHas('projects', function ($query) use ($type_project) {
+            $query->where('slug', $type_project->slug);
+        })->select('id', 'name', 'inventory_card', 'project', 'price', 'residu_value', 'depreciation_value', 'location', 'condition', 'loan_date', 'buy_date', 'description', 'user', 'status', 'created_at');
+        $invcard = InvCard::whereHas('projects', function ($query) use ($type_project) {
+            $query->where('slug', $type_project->slug);
+        })->select('id', 'name', 'inventory_card', 'project', 'price', 'residu_value', 'depreciation_value', 'location', 'condition', 'loan_date', 'buy_date', 'description', 'user', 'status', 'created_at');
+        $project = Proyek::whereHas('projects', function ($query) use ($type_project) {
+            $query->where('slug', $type_project->slug);
+        })->select('id', 'name', 'inventory_card', 'project', 'price', 'residu_value', 'depreciation_value', 'location', 'condition', 'loan_date', 'buy_date', 'description', 'user', 'status', 'created_at');
+        // $data = $build->unionAll($kendaraan)
+        //     ->unionAll($office)
+        //     ->unionAll($invcard)
+        //     ->unionAll($projects)
+        //     ->get();
+        $projects = $build->unionAll($kendaraan)
+            ->unionAll($office)
+            ->unionAll($invcard)
+            ->unionAll($project)
+            ->latest()->paginate(15);
+        // dd($data);
         return view('project.project', compact('projects', 'type_project'));
     }
 
