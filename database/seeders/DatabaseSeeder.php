@@ -60,7 +60,7 @@ class DatabaseSeeder extends Seeder
             'created_at' => '2023-07-10 07:44:16',
             'updated_at' => '2023-07-10 07:44:16'
         ]);
-        // \App\Models\Project::factory(2)->create();
+        \App\Models\Project::factory(2)->create();
         DB::table('projects')->insert([
             ['name' => 'TFCA (Kons.OIC)', 'slug' => 'tfca'],
             ['name' => 'US-EMBASSY', 'slug' => 'us-embassy'],
