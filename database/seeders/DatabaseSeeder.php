@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         User::create([
             'id' => NULL,
-            'name' => 'Joanny Farrell',
+            'name' => 'Farrell',
             'username' => 'admin',
             'photo_profile' => 'profiles/cTIEOT4rN3HuAXDkFZzTHvSUnrGMAySTR6DaUriZ.jpg',
             'email' => 'scotty58@example.org',
@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'id' => NULL,
-            'name' => 'Mr. Francisco Volkman',
+            'name' => 'Faisal',
             'username' => 'yayasan',
             'photo_profile' => NULL,
             'email' => 'marguerite.halvorson@example.com',
@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'id' => NULL,
-            'name' => 'Lizeth Reichel',
+            'name' => 'Rahmat Gunawa',
             'username' => 'direktur',
             'photo_profile' => NULL,
             'email' => 'kuphal.fredrick@example.net',
@@ -60,7 +60,6 @@ class DatabaseSeeder extends Seeder
             'created_at' => '2023-07-10 07:44:16',
             'updated_at' => '2023-07-10 07:44:16'
         ]);
-        \App\Models\User::factory(3)->create();
         // \App\Models\Project::factory(2)->create();
         DB::table('projects')->insert([
             ['name' => 'TFCA (Kons.OIC)', 'slug' => 'tfca'],
