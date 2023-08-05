@@ -20,7 +20,7 @@ class BuildController extends Controller
      */
     public function index()
     {
-        $builds = Build::latest()->paginate(15);
+        $builds = Build::orderBy('buy_date', 'desc')->paginate(15);
         return view('build.build', compact('builds'));
     }
 

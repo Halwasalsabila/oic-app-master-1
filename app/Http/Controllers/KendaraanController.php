@@ -17,7 +17,7 @@ class KendaraanController extends Controller
      */
     public function index()
     {
-        $kendaraans = Kendaraan::latest()->paginate(15);
+        $kendaraans = Kendaraan::orderBy('buy_date', 'desc')->paginate(15);
         return view('kendaraan.kendaraan', compact('kendaraans'));
     }
 

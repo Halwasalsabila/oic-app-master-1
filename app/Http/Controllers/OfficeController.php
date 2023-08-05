@@ -18,7 +18,7 @@ class OfficeController extends Controller
      */
     public function index()
     {
-        $offices = Office::latest()->paginate(15);
+        $offices = Office::orderBy('buy_date', 'desc')->paginate(15);
         return view('office.office', compact('offices'));
     }
 

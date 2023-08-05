@@ -17,7 +17,7 @@ class TanahController extends Controller
      */
     public function index()
     {
-        $tanahs = Tanah::latest()->paginate(15);
+        $tanahs = Tanah::orderBy('date_buy', 'desc')->paginate(15);
         return view('tanah.tanah', compact('tanahs'));
     }
 

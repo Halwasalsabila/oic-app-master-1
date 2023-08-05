@@ -44,7 +44,7 @@ class ProyekController extends Controller
             ->unionAll($office)
             ->unionAll($invcard)
             ->unionAll($project)
-            ->latest()->paginate(15);
+            ->orderBy('buy_date', 'desc')->paginate(15);
         // dd($data);
         return view('project.project', compact('projects', 'type_project'));
     }

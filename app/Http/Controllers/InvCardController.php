@@ -17,7 +17,7 @@ class InvCardController extends Controller
      */
     public function index()
     {
-        $invcards = InvCard::latest()->paginate(15);
+        $invcards = InvCard::orderBy('buy_date', 'desc')->paginate(15);
         return view('invcard.invcard', compact('invcards'));
     }
 
