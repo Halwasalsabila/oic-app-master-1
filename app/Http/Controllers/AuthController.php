@@ -26,7 +26,7 @@ class AuthController extends Controller
             return redirect()->intended('/dashboard');
         } else {
             return back()->withErrors([
-                'error' => 'Username dan passowrd salah',
+                'error' => 'Username dan password salah',
             ])->withInput($request->only('username'));
         }
     }
