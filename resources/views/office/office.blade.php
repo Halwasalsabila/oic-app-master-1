@@ -78,17 +78,7 @@
                                             <td>{{ $item->amount . " {$item->unit}" }}</td>
                                             <td>{{ Helper::formatRupiah($item->total) }}</td>
                                             <td>{{ Helper::formatRupiah($item->residu_value) }}</td>
-                                            <td>
-                                                @if ($item->price !== 0)
-                                                    @for ($i = 1; $i <= 10; $i++)
-                                                        <li>Ke-{{ $i }}
-                                                            {{ Helper::formatRupiah(($item->price - $item->residu_value) / $i) }}
-                                                        </li>
-                                                    @endfor
-                                                @else
-                                                    Rp. 0
-                                                @endif
-                                            </td>
+                                            <td>{{ Helper::formatRupiah($item->depreciation_value) }}</td>
                                             <td>{{ $item->location }}</td>
                                             <td>
                                                 @if ($item->condition == 'Baik')
